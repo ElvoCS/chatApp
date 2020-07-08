@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for, render_template, session
+from flask import Flask, redirect, url_for, render_template, session, request
 from client import Client
 
 NAME_KEY = 'name'
@@ -14,6 +14,7 @@ def login():
     if request.method == "POST":
         session[NAME_KEY] = request.form["name"]
         return redirect(url_for("home"))
+    
     return render_template("login.html")
 
 
